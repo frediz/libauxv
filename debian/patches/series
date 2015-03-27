@@ -1,4 +1,3 @@
 disable-force-build-in-separate-dir
-#change-top-builddir
 hardened-build
 manpages-fix
