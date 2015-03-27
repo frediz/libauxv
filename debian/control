@@ -20,7 +20,7 @@ Package: libauxv-dev
 Architecture: any
 Section: libdevel
 Depends: libauxv1 (= ${binary:Version}), ${misc:Depends}
-Description: Auxiliary Vector Library
+Description: Auxiliary Vector Library development files
  Libauxv is designed to query /proc/self/auxv for the auxiliary vector.
  Sufficiently old kernels may not have support for this. In this case Libauxv
  will attempt to use a fallback mechanism and locate the auxiliary vector
