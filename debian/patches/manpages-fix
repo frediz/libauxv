@@ -1,0 +1,57 @@
+--- a/man/auxv.3
++++ b/man/auxv.3
+@@ -2,13 +2,14 @@
+ .\" groff -mdoc -Tascii auxv.3
+ .Dd February 2nd, 2010
+ .Os Linux
+-.Dt AUXV \&3 "Library Functions Manual"
++.Dt AUXV 3 "Library Functions Manual"
+ .Sh NAME
+ .Nm prefetch_auxv,
+ .Nm query_auxv,
+ .Nm get_auxv
+ .Nd functions for querying the auxiliary vector
+ .Sh LIBRARY
++.ds str-Lb-libauxv Auxiliary Vector library (libauxv, \-lauxv)
+ .Lb libauxv
+ .Sh SYNOPSIS
+ .In auxv/auxv.h
+@@ -183,21 +184,21 @@
+ .Sh RATIONALE
+ The functionality in Libauxv was originally proposed for inclusion in GLIBC
+ but was rejected by the maintainer.
+-
++.Pp
+ The reason this library is necessary is as follows:
+-
++.Pp
+ 1.) GLIBC won't provide access to the 5th process variable, which is the
+ auxiliary vector (see the link above).
+-
++.Pp
+ 2.) Libraries may need access to the auxv information but only 'main' can find
+ it.
+-
++.Pp
+ 3.) Libraries may try to find the auxv after the env, but as a library you
+ can't guarantee that a user application hasn't mangled the environment.
+-
++.Pp
+ 4.) Given that the most reliable method for querying the aux vector is through
+ /proc/self/auxv a reusable library is useful.
+-
++.Pp
+ 5.) There is an automatic fallback to attempting to read the aux vector from
+ the env if the /proc/self/auxv isn't supported by the kernel.
+ .Sh SEE ALSO
+--- a/man/lsauxv.1
++++ b/man/lsauxv.1
+@@ -2,7 +2,7 @@
+ .\" groff -mdoc -Tascii lsauxv.1
+ .Dd February 3, 2010
+ .Os Linux
+-.Dt LSAUXV \&1 "General Commands Manual"
++.Dt LSAUXV 1 "General Commands Manual"
+ .Sh NAME
+ .Nm lsauxv
+ .Nd command for querying the auxiliary vector
