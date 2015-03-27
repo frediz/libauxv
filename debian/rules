@@ -4,11 +4,14 @@ export DH_VERBOSE=1
 %:
 	dh $@ --with autoreconf
 
+override_dh_auto_configure:
+	dh_auto_configure -- --enable-static
+
 override_dh_auto_install:
 	$(MAKE) install install_root=$(CURDIR)/debian/tmp
 
 override_dh_auto_clean:
 	# Output files
-	rm -f *.o *.so test_auxv_shared test_auxv_shared.out test_auxv_fallback_shared test_auxv_fallback_shared.out lsauxv libauxv.so.1 libauxv_test.so.1
+	rm -f *.o *.so test_auxv_shared test_auxv_shared.out test_auxv_fallback_shared test_auxv_fallback_shared.out lsauxv libauxv.so.1 libauxv_test.so.1 libauxv.a test_auxv_static test_auxv_static.out
 	# Source files modified
 	rm -f Makefile config.h config.log config.status
